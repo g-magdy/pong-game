@@ -28,7 +28,35 @@ void Ball::move()
     y += speed_y;
 
     if (x >= GetScreenWidth() - radius || x < radius)
+    {
         speed_x *= -1;
+    }
+
     if (y >= GetScreenHeight() - radius || y < radius)
+        speed_y *= -1;
+}
+
+void Ball::checkCollisionWithPaddle(float paddle_x, float paddle_y, float paddle_width, float paddle_height)
+{
+    if (CheckCollisionCircleRec(
+        Vector2{(float)x, (float)y},radius,
+        Rectangle{paddle_x, paddle_y, paddle_width, paddle_height}
+    ))
+        speed_x *= -1.1;
+}
+
+void Ball::reCentre(int x_dir)
+{
+    x = GetScreenWidth() / 2;
+    y = GetScreenHeight() / 2;
+
+    speed_x = initialSpeed;
+    speed_y = initialSpeed;
+    
+    // reflect towards the left (if x_dir is zero then the player scored)
+    if (x_dir == 0)
+        speed_x *= -1;
+
+    if (GetRandomValue(0, 1))
         speed_y *= -1;
 }

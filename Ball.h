@@ -5,6 +5,7 @@ class Ball
 {    
 public:
     int x, y;
+    int initialSpeed;
     int speed_x, speed_y;
     int radius;
     Color color;
@@ -14,4 +15,6 @@ public:
 
     void drawBall();
     void move();
+    void checkCollisionWithPaddle(float paddle_x, float paddle_y, float paddle_width, float paddle_height);
+    void reCentre(int x_dir);
 };
