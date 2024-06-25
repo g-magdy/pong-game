@@ -1,6 +1,6 @@
 # 🏓 Pong Game
 
-![Pong Game GIF](ping-pong.gif)
+![Pong Game GIF](pong-mini.gif)
 
 ## 📝 Overview
 
