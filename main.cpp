@@ -5,8 +5,11 @@
 
 #include <iostream>
 #include "Ball.h"
+#include "Paddle.h"
 
 Ball ball;
+Paddle player1;
+Paddle player2;
 
 int main()
 {
@@ -21,23 +24,48 @@ int main()
     SetTargetFPS(60);
 
     // Initialize parameters of objects here
+    
+    // Ball prameters
+    ball.x = screenWidth / 2;
+    ball.y = screenHeight / 2;
+    ball.radius = 10;
+    ball.speed_x = 10;
+    ball.speed_y = 10;
+    ball.color = YELLOW;
 
-    ball.setParams(screenWidth / 2,
-                    screenHeight / 2,
-                    18, 5, 5, YELLOW);
+    // margin between paddle and edge of screen
+    const int margin = 12;
 
+    // Player1 parameters
+    player1.width = 20;
+    player1.height = 120;
+    player1.color = WHITE;
+    player1.x = margin;
+    player1.y = screenHeight / 2 - player1.height / 2;
+    player1.speed = 12;
+
+    // Player2 parameters
+    player2.width = 20;   
+    player2.height = 120;
+    player2.color = GREEN;
+    player2.x = screenWidth - margin - player2.width;
+    player2.y = screenHeight / 2 - player2.height / 2;
+    player2.speed = 12;
 
     // while the escape button or the X icon have not been clicked
     while (WindowShouldClose() == false)
     {
         // UPDATE OBJECTS HERE
-        ball.update();
-
+        ball.move();
+        player1.move();
 
         // Draw
         // ----------------------------------------------------------------------------
         BeginDrawing();
+        
+        
         //* important to remove old traces of the game
+        //? OR IF YOU WANT TO MAKE A VISUALLY APPEALING ANIMATION
         ClearBackground(BLACK);
 
         // separating line
@@ -45,18 +73,8 @@ int main()
         
         ball.drawBall();
 
-        const int rectangeWidth = 20;
-        const int rectangleHeight = 120;
-        const int margin = 12;
-
-        // first rectangle
-        DrawRectangle(margin, screenHeight / 2 - rectangleHeight / 2,
-                      rectangeWidth, rectangleHeight, WHITE);
-
-        // second rectange
-        DrawRectangle(screenWidth - margin - rectangeWidth, screenHeight / 2 - rectangleHeight / 2,
-                      rectangeWidth, rectangleHeight, WHITE);
-
+        player1.draw();
+        player2.draw();
 
         EndDrawing();
     }

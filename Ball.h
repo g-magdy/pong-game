@@ -7,12 +7,11 @@ public:
     int x, y;
     int speed_x, speed_y;
     int radius;
-    CLITERAL(Color) color;
+    Color color;
     Ball();
-    void setParams(int x, int y, int radius, int speed_x, int speed_y, CLITERAL(Color) clr);
+    void setParams(int x, int y, int radius, int speed_x, int speed_y, Color clr);
     ~Ball();
 
     void drawBall();
-    void update();
-    //
+    void move();
 };
