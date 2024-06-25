@@ -4,11 +4,12 @@
 
 ## 📝 Overview
 
-This is a simple Pong game implemented in C++ using the Raylib library and Object-Oriented Programming (OOP) principles. It's a basic version of the classic arcade game where two players use paddles to hit a ball back and forth.
+This is a simple Pong game implemented in C++ using the Raylib library and Object-Oriented Programming (OOP) principles. It's a basic version of the classic arcade game where two players use paddles to hit a ball back and forth. But with a twist; The ball speeds up each time it collides with the paddle 😎  
+And the speed is reset back when a goal is scored 
 
 ## ✨ Features
-Currently only a single player against a brutal CPU 😄  
-Soon, I may add the two player functionality as an option
+- Currently only a single player against a brutal CPU 😄  
+- Soon, I may add the two player functionality as an option
 
 ## 🎮 Controls
 - **Player (Left Paddle):**
